@@ -13,4 +13,7 @@ class Robot():
 
     def report(self) -> str:
         return f"{self.position.x +1},{self.position.y + 1},{self.facing.name}"
+    
+    def move(self, pos: Position) -> None:
+        self.position = pos
 
