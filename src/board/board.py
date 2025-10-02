@@ -46,5 +46,17 @@ class Board():
         if self.robot:
             self.robot.facing = self.robot.facing.turn("RIGHT")
 
+    def occupied(self, pos: Position) -> bool:
+        return (self.robot and self.robot.position == pos) or (Wall(pos) in self.walls)
+    
+    def move(self) -> None:
+        if self.robot:
+            new_x = (self.robot.position.x + self.robot.facing.value[0]) % self.size
+            new_y = (self.robot.position.y + self.robot.facing.value[1]) % self.size
+            new_pos = Position(new_x, new_y)
+            if not Wall(new_pos) in self.walls:
+                self.robot.move(new_pos)
+
+
 
 
