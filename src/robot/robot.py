@@ -12,5 +12,5 @@ class Robot():
         self.facing = dir
 
     def report(self) -> str:
-        return f"{self.position.x +1},{self.position.y + 1},{self.facing}"
+        return f"{self.position.x +1},{self.position.y + 1},{self.facing.name}"
 
