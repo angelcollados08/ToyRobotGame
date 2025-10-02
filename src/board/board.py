@@ -25,8 +25,8 @@ class Board():
         if self.is_valid_move(pos,dir):
             new_dir = Direction[dir]
             if self.robot is None:
-                self.robot = Robot(pos,new_dir)
-            self.robot.set_robot(pos,dir)
+                self.robot = Robot(pos,dir)
+            self.robot.set_robot(pos,new_dir)
 
     def place_wall(self,pos: Position) -> None:
         pos.normalize_position()
@@ -38,6 +38,13 @@ class Board():
         if self.robot:
             print(self.robot.report())
 
+    def left(self) -> None:
+        if self.robot:
+            self.robot.facing = self.robot.facing.turn("LEFT")
+
+    def right(self) -> None:
+        if self.robot:
+            self.robot.facing = self.robot.facing.turn("RIGHT")
 
 
 
